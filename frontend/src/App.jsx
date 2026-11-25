@@ -9,8 +9,8 @@ function App() {
 
   return (
     <>
-      <section id="center">
-        <h1>Mernstack Ecommerce</h1>
+      <section id="center" className='bg-red-600'>
+        <h1 className='text-white'>Mernstack Ecommerce</h1>
       </section>
     </>
   )
