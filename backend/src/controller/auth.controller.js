@@ -366,6 +366,18 @@ export async function refreshAccessToken(req, res) {
 
         const decoded = jwt.verify(refreshToken, config.REFRESH_TOKEN_SECRET)
 
+        const refreshTokenHash = crypto.createHash("sha256").update(refreshToken).digest("hex")
+        const storedToken = await refreshTokenModel.findOne({
+            user: decoded.id,
+            tokenHash: refreshTokenHash,
+            expiresAt: {$gt: new Date()}
+        })
+
+        if(!storedToken){
+            return res.status(401).json({
+        message: "Invalid or expired refresh token"
+    })
+        }
         if (decoded.tokenType !== "refresh") {
             return res.status(401).json({
                 message: "Invalid refresh token"
@@ -386,32 +398,40 @@ export async function refreshAccessToken(req, res) {
             });
         }
 
-        //     const newRefreshToken = jwt.sign({
-        //     id: user._id,
-        //     tokenType: "refresh"
-        // }, config.REFRESH_TOKEN_SECRET, { expiresIn: "7d" })
+        const newRefreshToken = jwt.sign({
+            id: user._id,
+            tokenType: "refresh"
+        }, config.REFRESH_TOKEN_SECRET, { expiresIn: "7d" })
 
         const accessToken = jwt.sign({
             id: user._id,
             role: user.role,
             tokenType: "access"
         }, config.ACCESS_TOKEN_SECRET, { expiresIn: "10m" })
+        const newRefreshTokenHash = crypto.createHash("sha256").update(newRefreshToken).digest("hex")
 
-        // res.cookie("refreshToken", newRefreshToken, {
-        //     httpOnly: true,
-        //     secure: true,
-        //     sameSite: "strict",
-        //     maxAge: 7 * 24 * 60 * 60 * 1000
-        // })
+    await refreshTokenModel.create({
+        user: user._id,
+        tokenHash: newRefreshTokenHash,
+        familyId: crypto.randomUUID(),
+        expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)
+    })
+
+        res.cookie("refreshToken", newRefreshToken, {
+            httpOnly: true,
+            secure: true,
+            sameSite: "strict",
+            maxAge: 7 * 24 * 60 * 60 * 1000
+        })
 
         res.status(200).json({
             message: "Access token refreshed successfully",
-            user: {
-                fullName: user.fullName,
-                username: user.username,
-                email: user.email,
-                avatar: user.avatar,
-            },
+            // user: {
+            //     fullName: user.fullName,
+            //     username: user.username,
+            //     email: user.email,
+            //     avatar: user.avatar,
+            // },
             accessToken
         })
     } catch (error) {
@@ -455,10 +475,13 @@ export async function logout(req, res) {
                 message: "Already logged out"
             })
         }
+        const decoded = jwt.verify(refreshToken, config.REFRESH_TOKEN_SECRET)
+
+        await refreshTokenModel.deleteOne({user: decoded.id})
 
         res.clearCookie("refreshToken", {
             httpOnly: true,
-            secure: process.env.NODE_ENV === "production",
+            // secure: process.env.NODE_ENV === "production",
             sameSite: "strict"
         })
         return res.status(200).json({
