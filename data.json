@@ -1,0 +1,165 @@
+
+[
+  {
+    "name": "Wireless Bluetooth Headphones",
+    "description": "Premium wireless headphones with high quality sound, deep bass and long battery life.",
+    "price": 4500,
+    "discountPrice": 3999,
+    "images": [
+      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800",
+      "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=800"
+    ],
+    "category": {
+      "$oid": "692000000000000000000001"
+    },
+    "stock": 25,
+    "brand": "Sony",
+    "sku": "SONY-HEAD-001",
+    "isActive": true
+  },
+  {
+    "name": "Apple Wireless Earbuds",
+    "description": "Compact wireless earbuds with clear audio, comfortable fit and charging case.",
+    "price": 8500,
+    "discountPrice": 7499,
+    "images": [
+      "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=800",
+      "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=800"
+    ],
+    "category": {
+      "$oid": "692000000000000000000001"
+    },
+    "stock": 40,
+    "brand": "Apple",
+    "sku": "APPLE-EAR-002",
+    "isActive": true
+  },
+  {
+    "name": "Mechanical Gaming Keyboard",
+    "description": "RGB mechanical gaming keyboard with responsive keys and durable construction.",
+    "price": 6500,
+    "discountPrice": 5999,
+    "images": [
+      "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=800"
+    ],
+    "category": {
+      "$oid": "692000000000000000000002"
+    },
+    "stock": 15,
+    "brand": "Logitech",
+    "sku": "LOGI-KEY-003",
+    "isActive": true
+  },
+  {
+    "name": "Wireless Gaming Mouse",
+    "description": "Ergonomic wireless gaming mouse with adjustable DPI and precision tracking.",
+    "price": 3200,
+    "discountPrice": 2799,
+    "images": [
+      "https://images.unsplash.com/photo-1527814050087-3793815479db?w=800"
+    ],
+    "category": {
+      "$oid": "692000000000000000000002"
+    },
+    "stock": 30,
+    "brand": "Logitech",
+    "sku": "LOGI-MOUSE-004",
+    "isActive": true
+  },
+  {
+    "name": "Smart Watch Series 9",
+    "description": "Modern smartwatch with fitness tracking, heart rate monitoring and notifications.",
+    "price": 12000,
+    "discountPrice": 10999,
+    "images": [
+      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800"
+    ],
+    "category": {
+      "$oid": "692000000000000000000003"
+    },
+    "stock": 18,
+    "brand": "Apple",
+    "sku": "APPLE-WATCH-005",
+    "isActive": true
+  },
+  {
+    "name": "Premium Leather Backpack",
+    "description": "Stylish and spacious backpack suitable for office, university and travelling.",
+    "price": 5500,
+    "discountPrice": 4999,
+    "images": [
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800"
+    ],
+    "category": {
+      "$oid": "692000000000000000000004"
+    },
+    "stock": 12,
+    "brand": "Urban Gear",
+    "sku": "URBAN-BAG-006",
+    "isActive": true
+  },
+  {
+    "name": "USB Type-C Fast Charging Cable",
+    "description": "Durable Type-C charging cable with fast charging and reliable data transfer.",
+    "price": 800,
+    "discountPrice": 650,
+    "images": [
+      "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=800"
+    ],
+    "category": {
+      "$oid": "692000000000000000000005"
+    },
+    "stock": 100,
+    "brand": "Anker",
+    "sku": "ANKER-CABLE-007",
+    "isActive": true
+  },
+  {
+    "name": "Portable Bluetooth Speaker",
+    "description": "Portable Bluetooth speaker with powerful bass, clear sound and compact design.",
+    "price": 3800,
+    "discountPrice": 3299,
+    "images": [
+      "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=800"
+    ],
+    "category": {
+      "$oid": "692000000000000000000005"
+    },
+    "stock": 22,
+    "brand": "JBL",
+    "sku": "JBL-SPEAKER-008",
+    "isActive": true
+  },
+  {
+    "name": "Modern Running Shoes",
+    "description": "Lightweight running shoes with comfortable cushioning and breathable material.",
+    "price": 7500,
+    "discountPrice": 6999,
+    "images": [
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800"
+    ],
+    "category": {
+      "$oid": "692000000000000000000006"
+    },
+    "stock": 35,
+    "brand": "Nike",
+    "sku": "NIKE-SHOES-009",
+    "isActive": true
+  },
+  {
+    "name": "Classic Sunglasses",
+    "description": "Stylish sunglasses with modern design and UV protection lenses.",
+    "price": 2500,
+    "discountPrice": 1999,
+    "images": [
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=800"
+    ],
+    "category": {
+      "$oid": "692000000000000000000006"
+    },
+    "stock": 50,
+    "brand": "Ray-Ban",
+    "sku": "RAYBAN-SUN-010",
+    "isActive": true
+  }
+]
